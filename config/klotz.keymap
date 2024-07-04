@@ -12,33 +12,60 @@
 //              █         ██▄▄▄▄▄▄▄▄█▄▄▄▄▄▄▄▄▄▄▀        ██▄▄▄▄▄▄▄▄▄▄
 //
 //▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-       
+//
+//
+
+/* ╭────┬────┬────┬────┬────╮ ⌄        ⌄ ╭────┬────┬────┬────┬────╮
+   │  0 │  1 │  2 │  3 │  4 │ │  ⌁⌁⌁⌁  │ │  5 │  6 │  7 │  8 │  9 │
+   ├────┼────┼────┼────┼────┼─╯        ╰─┼────┼────┼────┼────┼────┤
+   │ 10 │ 11 │ 12 │ 13 │ 14 │╭───╮  ╭───╮│ 15 │ 16 │ 17 │ 18 │ 19 │
+   ├────┼────┼────┼────┼────┤│ROT│  │ROT│├────┼────┼────┼────┼────┤
+   │ 20 │ 21 │ 22 │ 23 │ 24 │╰───╯  ╰───╯│ 25 │ 26 │ 27 │ 28 │ 29 │
+   ╰────┴────┴─────────┼────┼────╮  ╭────┼────┼────┼────┴────┴────╯
+                       │ 30 │ 31 │  │ 32 │ 33 │
+                       ╰────┴────╯  ╰────┴────╯ */
 
 #include "base_5x3T2.h"
-
-// KLOTZ key numbers
-//  ___________________________________       ___________________________________
-// |  0  |  1  |  2  |  3  |  4  |     |     |     |    5 |   6 |   7 |   8 |  9  |
-// | 10  | 11  | 12  | 13  | 14  |     |     |     |   15 |  16 |  17 |  18 | 19  |
-// | 20  | 21  | 22  | 23  | 24  | ROT |     | ROT |   25 |  26 |  27 |  28 | 29  |
-// |                         30  | 31  |     |  32 |  33                         |
-//  -----------------------------------       -----------------------------------
 
 / {
 
     keymap {
         compatible = "zmk,keymap";
 
+        /*  ┌───────────────────────────────────────────────────────────┐
+            │ q w e r t y                                               │
+            └───────────────────────────────────────────────────────────┘
+            ╭───────────┬───────────┬───────────┬───────────┬───────────╮ ⌄                    ⌄ ╭───────────┬───────────┬───────────┬───────────┬───────────╮
+            │     Q     │     W     │     E     │     R     │     T     │ │     ⌁⌁⌁⌁⌁⌁⌁⌁⌁⌁     │ │     Y     │     U     │     I     │     O     │     P     │
+            ├───────────┼───────────┼───────────┼───────────┼───────────┼─╯                    ╰─┼───────────┼───────────┼───────────┼───────────┼───────────┤
+            │   A/HRM   │   S/HRM   │   D/HRM   │   F/HRM   │     G     │╭──────────╮╭──────────╮│     H     │   J/HRM   │   K/HRM   │   L/HRM   │   :/HRM   │
+            ├───────────┼───────────┼───────────┼───────────┼───────────┤│          ││          │├───────────┼───────────┼───────────┼───────────┼───────────┤
+            │     Z     │     X     │     C     │     V     │     B     │╰──────────╯╰──────────╯│     N     │     M     │     ,     │     .     │     /     │
+            ╰───────────┴───────────┴───────────┴───────────┼───────────┼───────────╮╭───────────┼───────────┼───────────┴───────────┴───────────┴───────────╯
+                                                            │  Tab/NAV  │ Enter/NUM ││ Space/SYM │  Esc/NAV  │
+                                                            ╰───────────┴───────────╯╰───────────┴───────────╯ */
+
         aptmak {
-            label = "APT";
+            label = "QWERTY";
 
             bindings = <
-                &none          &kp W          &kp F          &kp P          &kp B            &kp J          &kp L          &kp U          &kp Y          &none
-                &hl LCTRL R    &hl LALT S     &hl LGUI T     &hl LSHFT H    &hl RALT K       &hr RALT X     &hr RSHFT N    &hr RGUI A     &hr LALT I     &hr RCTRL O
-                &none          &kp C          &kp G          &kp D          &none            &none          &kp M          &comsem        &dotcol        &none
+                &kp Q       &kp W       &kp E       &kp R       &kp T                                &kp Y       &kp U       &kp I       &kp O       &kp P
+                &kp A       &kp S       &kp D       &kp F       &kp G                                &kp H       &kp J       &kp K       &kp L       &kp COLON
+                &kp Z       &kp X       &kp C       &kp V       &kp B                                &kp N       &kp M       &kp COMMA   &kp DOT     &kp SLASH
                                                              &my_lt NUM SQT &my_lt NAV SPACE &my_lt SYM E   &my_lt FUN ENTER
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN  &inc_dec_kp LA(TAB) LA(LS(TAB))>;
+        };
+        symbols {
+            label = "SYM";
+
+            bindings = <
+                &none          &kp GRAVE      &kp DQT        &kp RA(LS(SEMI)) &kp LBRC       &kp RBRC       &kp BACKSLASH  &kp PIPE       &kp LT         &kp GT
+                &kp EXCL       &kp AT         &kp HASH       &kp DOLLAR       &kp LPAR       &kp RPAR       &kp AMPERSAND  &kp ASTERISK   &kp PERCENT    &kp CARET
+                &none          &kp TILDE      &kp SQT        &kp UNDERSCORE   &kp LBKT       &kp RBKT       &kp MINUS      &kp PLUS       &kp EQUAL      &none
+                                                             &trans           &trans         &trans         &trans
+            >;
+            sensor-bindings = <&inc_dec_kp SPACE BSPC  &inc_dec_kp RIGHT LEFT>;
         };
         numbers {
             label = "NUM";
@@ -61,17 +88,6 @@
                                                              &trans          &trans         &trans         &trans
             >;
             sensor-bindings = <&inc_dec_kp PG_UP PG_DN  &inc_dec_kp LC(RIGHT) LC(LEFT)>;
-        };
-        symbols {
-            label = "SYM";
-
-            bindings = <
-                &none          &kp GRAVE      &kp DQT        &kp RA(LS(SEMI)) &kp LBRC       &kp RBRC       &kp BACKSLASH  &kp PIPE       &kp LT         &kp GT
-                &kp EXCL       &kp AT         &kp HASH       &kp DOLLAR       &kp LPAR       &kp RPAR       &kp AMPERSAND  &kp ASTERISK   &kp PERCENT    &kp CARET
-                &none          &kp TILDE      &kp SQT        &kp UNDERSCORE   &kp LBKT       &kp RBKT       &kp MINUS      &kp PLUS       &kp EQUAL      &none
-                                                             &trans           &trans         &trans         &trans
-            >;
-            sensor-bindings = <&inc_dec_kp SPACE BSPC  &inc_dec_kp RIGHT LEFT>;
         };
         function {
             label = "FUN";
