@@ -236,7 +236,7 @@ combo_##NAME { \
 
             bindings = <
              &trans      &trans      &kp RA(E)   &trans      &trans                               &trans      &kp RA(U)   &trans      &kp RA(O)   &trans
-             &kp RA(A    &kp RA(S)   &trans      &sk LSHIFT  &trans                               &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &trans
+             &kp RA(A)   &kp RA(S)   &trans      &sk LSHIFT  &trans                               &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &trans
              &trans      &trans      &trans      &trans      &trans                               &trans      &trans      &trans      &trans      &trans
                                                              &trans       &trans      &trans      &trans
             >;
