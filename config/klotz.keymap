@@ -78,8 +78,8 @@ combo_##NAME { \
         COMBO(capslock, &kp CAPSLOCK, 0 9)
 
         // In the number cluster
-        COMBO(singlequote, &kp APOSTROPHE, 6 7)
-        COMBO(doublequote, &kp QUOTE(DOUBLE), 7 8)
+        COMBO(singlequote, &kp SINGLE_QUOTE, 6 7)
+        COMBO(doublequote, &kp DOUBLE_QUOTE, 7 8)
         COMBO(minus, &kp MINUS, 17 18)
         COMBO(plus, &kp PLUS, 16 17)
         COMBO(equal, &kp PLUS, 27 28)
