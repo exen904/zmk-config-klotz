@@ -145,7 +145,7 @@ combo_##NAME { \
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        bspdel: colon_semicolon {
+        bspdel: backspace_delete{
             compatible = "zmk,behavior-mod-morph";
             label = "backspace/delete";
             #binding-cells = <0>;
