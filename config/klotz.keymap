@@ -94,6 +94,22 @@ combo_##NAME { \
 
 / {
     behaviors {
+        colsem: colon_semicolon {
+            compatible = "zmk,behavior-mod-morph";
+            label = "inverted colon/semicolon";
+            #binding-cells = <0>;
+            bindings = <&kp COLON>, <&kp SEMICOLON>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        bspc_del: backspace_delete {
+            compatible = "zmk,behavior-mod-morph";
+            label = "backspace/delete";
+            #binding-cells = <0>;
+            bindings = <&kp BACKSPACE>, <&kp DELETE>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
         hl: homerow_mods_left {
             compatible = "zmk,behavior-hold-tap";
             label = "homerow mods left";
@@ -141,25 +157,13 @@ combo_##NAME { \
             compatible = "zmk,behavior-hold-tap";
             label = "my layer tap with hardcoded backspace-tap with mod morph";
             #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <TAPPING_TERM_TIME>;
+            quick-tap-ms = <QUICK_TAP_TIME>;
+            require-prior-idle-ms = <IDLE_MOD_TIME>;
             bindings = <&mo &kp>, <&bspc_del>;
-            tapping-term-ms = <200>;
         };
 
-        colsem: colon_semicolon {
-            compatible = "zmk,behavior-mod-morph";
-            label = "inverted colon/semicolon";
-            #binding-cells = <0>;
-            bindings = <&kp COLON>, <&kp SEMICOLON>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        bspc_del: backspace_delete {
-            compatible = "zmk,behavior-mod-morph";
-            label = "backspace/delete";
-            #binding-cells = <0>;
-            bindings = <&kp BACKSPACE>, <&kp DELETE>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
     };
 };
 
