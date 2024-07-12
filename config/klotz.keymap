@@ -56,7 +56,7 @@
 #define NUM_ENT &my_lt NUM ENTER
 #define SYM_SPC &my_lt SYM SPACE
 #define NAV_TAB &my_lt NAV TAB
-#define NAV_BSP &my_lt NAV BACKSPACE
+#define NAV_BSP &my_lt_bspc NAV BACKSPACE
 
 &caps_word {
     continue-list = <UNDERSCORE MINUS BSPC LSHFT RSHFT>;
@@ -132,9 +132,17 @@ combo_##NAME { \
             quick-tap-ms = <QUICK_TAP_TIME>;
             require-prior-idle-ms = <IDLE_MOD_TIME>;
             // global-quick-tap;
-            bindings = <&mo &kp>, <&kp>;
+            bindings = <&mo>, <&kp>;
             // non-thumb keys
             /* hold-trigger-key-positions = <0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23>; */
+        };
+
+        my_lt_bspc: my_layer_tap_bspc_del {
+            compatible = "zmk,behavior-hold-tap";
+            label = "my layer tap with hardcoded backspace-tap with mod morph";
+            #binding-cells = <2>;
+            bindings = <&mo>, <&bspc_del>;
+            tapping-term-ms = <200>;
         };
 
         colsem: colon_semicolon {
@@ -145,7 +153,7 @@ combo_##NAME { \
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        bspdel: backspace_delete{
+        bspc_del: backspace_delete {
             compatible = "zmk,behavior-mod-morph";
             label = "backspace/delete";
             #binding-cells = <0>;
