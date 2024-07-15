@@ -110,11 +110,11 @@ combo_##NAME { \
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        up_left: up_left {
+        du_rl: downup_rightleft {
             compatible = "zmk,behavior-mod-morph";
-            label = "up and shift left";
+            label = "encoder mod morph for movement";
             #binding-cells = <0>;
-            bindings = <&kp UP>, <&kp LEFT>;
+            bindings = <&inc_dec_kp DOWN UP>, <&inc_dec_kp RIGHT LEFT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
