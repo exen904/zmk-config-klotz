@@ -86,7 +86,7 @@ combo_##NAME { \
         COMBO(doublequote, &kp DOUBLE_QUOTES, 7 8)
         COMBO(minus, &kp MINUS, 17 18)
         COMBO(plus, &kp PLUS, 16 17)
-        COMBO(equal, &kp PLUS, 27 28)
+        COMBO(equal, &kp EQUAL, 27 28)
         COMBO(star, &kp ASTERISK, 26 27)
         COMBO(underscore, &kp UNDERSCORE, 16 17 18)
     };
@@ -107,6 +107,22 @@ combo_##NAME { \
             label = "backspace and shift delete";
             #binding-cells = <0>;
             bindings = <&kp BACKSPACE>, <&kp DELETE>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        up_left: up_left {
+            compatible = "zmk,behavior-mod-morph";
+            label = "up and shift left";
+            #binding-cells = <0>;
+            bindings = <&kp UP>, <&kp LEFT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        down_right: down_right {
+            compatible = "zmk,behavior-mod-morph";
+            label = "down and shift right";
+            #binding-cells = <0>;
+            bindings = <&kp DOWN>, <&kp RIGHT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -193,7 +209,7 @@ combo_##NAME { \
              &kp Z       &kp X       &kp C       &kp V       &kp B                                &kp N       &kp M       &kp COMMA   &kp DOT     &kp SLASH
                                                              NAV_TAB     NUM_ENT      SYM_SPC     NAV_BSP
             >;
-            sensor-bindings = <&inc_dec_kp UP DOWN  &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp DOWN UP &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         /*  ┌───────────────────────────────────────────────────────────┐
