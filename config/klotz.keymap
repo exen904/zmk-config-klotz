@@ -30,7 +30,6 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/backlight.h>
-/* #include "base_5x3T2.h" */
 
 #define TAPPING_TERM_TIME 200
 #define QUICK_TAP_TIME 200
