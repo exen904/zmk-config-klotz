@@ -81,6 +81,11 @@ combo_##NAME { \
         COMBO(equal, &kp EQUAL, 27 28, 50)
         COMBO(star, &kp ASTERISK, 26 27, 50)
         COMBO(underscore, &kp UNDERSCORE, 16 17 18, 50)
+
+        qw-combo {
+            bindings = <&kp ESCAPE>;
+            key-positions = <0 1>;
+        };
     };
 };
 
