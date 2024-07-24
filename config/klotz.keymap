@@ -113,7 +113,7 @@ combo_##NAME { \
             compatible = "zmk,behavior-hold-tap";
             label = "homerow mods left";
             #binding-cells = <2>;
-            flavor = "tap-preferred";
+            flavor = "balanced";
             tapping-term-ms = <TAPPING_TERM_TIME>;
             quick-tap-ms = <QUICK_TAP_TIME>;
             require-prior-idle-ms = <IDLE_MOD_TIME>;
@@ -131,7 +131,7 @@ combo_##NAME { \
             compatible = "zmk,behavior-hold-tap";
             label = "homerow mods right";
             #binding-cells = <2>;
-            flavor = "tap-preferred";
+            flavor = "balanced";
             tapping-term-ms = <TAPPING_TERM_TIME>;
             quick-tap-ms = <QUICK_TAP_TIME>;
             require-prior-idle-ms = <IDLE_MOD_TIME>;
