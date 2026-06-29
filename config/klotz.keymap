@@ -42,10 +42,6 @@
 #define NAV 3
 #define ADJ 4
 
-/ {
-    conditional_layers { compatible = "zmk,conditional-layers"; };
-};
-
 &mt {
     quick-tap-ms = <100>;
     global-quick-tap;
@@ -146,8 +142,6 @@
             key-positions = <16 18>;
         };
     };
-};
-*/
 
     behaviors {
         hl: homerow_mods_left {
@@ -195,7 +189,7 @@
         };
     };
 
-/ {
+
     keymap {
         compatible = "zmk,keymap";
 
